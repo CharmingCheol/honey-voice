@@ -6,6 +6,8 @@ import "./App.css";
 
 const App = () => {
   const [text, setText] = useState("");
+  const [actor, setActor] = useState<string>("default");
+
   const [showAudio, setShowAudio] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
 
@@ -17,13 +19,19 @@ const App = () => {
     setText(event.target.value);
   };
 
+  const handleChangeActorOption = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setActor(event.target.value);
+  };
+
   const handleClickSubmitBtn = async () => {
     setShowSpinner(true);
     setShowAudio(false);
 
     const resposne = await axios.post("/api/v1/synthesize", {
       text,
-      type: "",
+      type: actor === "default" ? "" : actor,
       source: "final",
     });
     const blobUrl = convertB64ToBlobUrl(resposne.data.data);
@@ -53,6 +61,30 @@ const App = () => {
     <div className="App">
       <h1>꿀보이스</h1>
       <textarea value={text} onChange={handleChangeTextInput}></textarea>
+      <div className="actor">
+        <h2>성우 선택</h2>
+        <div>
+          <input
+            type="radio"
+            id="default"
+            name="actor"
+            value="default"
+            checked
+            onChange={handleChangeActorOption}
+          ></input>
+          <label htmlFor="default">default</label>
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="miji"
+            name="actor"
+            value="miji"
+            onChange={handleChangeActorOption}
+          ></input>
+          <label htmlFor="miji">miji</label>
+        </div>
+      </div>
       <button onClick={handleClickSubmitBtn}>전송하기</button>
       <audio
         className={showAudio ? "show" : ""}
