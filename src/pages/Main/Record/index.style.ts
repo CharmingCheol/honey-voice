@@ -9,7 +9,6 @@ export const PageWrapper = styled.div`
   --darker-bg-color: #502f05;
   --darkest-bg-color: #3a2205;
 
-
   h1 {
     text-align: center;
     padding-top: 48px;
@@ -33,56 +32,34 @@ export const PageWrapper = styled.div`
     border-radius: 24px;
 
     &:focus {
-      outline: 2px solid var(--dark-bg-color)
+      outline: 2px solid var(--dark-bg-color);
     }
   }
-}
 
-
-audio {
-  width: 100%;
-}
-
-.button-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-top:6px;
-
-  button {
-    margin-top: 16px;
-    background-color: var(--dark-bg-color);
-    transition: 0.2s ease;
-    border: 0;
-    border-radius: 10px;
-
-    &:hover{
-      background-color: var(--darker-bg-color);
-    }
-    &:active{
-      background-color: var(--darkest-bg-color);
-    }
-
+  audio {
+    width: 100%;
   }
 
-}
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6px;
 
-//button.submit-btn, button.btn-success {
-//  margin-top:16px;
-//  background-color: var(--dark-bg-color);
-//  transition: 0.2s ease;
-//  border: 0;
-//  border-radius: 10px;
-//
-//  &:hover {
-//    background-color: var(--darker-bg-color);
-//  }
-//
-//  &:active {
-//    background-color: var(--darkest-bg-color);
-//
-//  }
+    button {
+      margin-top: 16px;
+      background-color: var(--dark-bg-color);
+      transition: 0.2s ease;
+      border: 0;
+      border-radius: 10px;
 
-
+      &:hover {
+        background-color: var(--darker-bg-color);
+      }
+      &:active {
+        background-color: var(--darkest-bg-color);
+      }
+    }
+  }
 `;
 
 export const SpinnerWrapper = styled.div`
@@ -94,4 +71,6 @@ export const SpinnerWrapper = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.2);
 `;
