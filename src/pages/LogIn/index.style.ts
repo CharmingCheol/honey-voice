@@ -22,11 +22,11 @@ export const PageWrapper = styled.section`
       border: 1px solid rgb(210,210,215);
       border-radius: 10px;
       transition: 0.2s;
-    }
-
-    input:focus {
-      padding: 16px 6px 16px 15px;
-      outline: 4px solid var(--main-bg-color);
+      
+      &:focus{
+        padding: 16px 6px 16px 15px;
+        outline: 4px solid var(--main-bg-color);
+      }
     }
 
     button {
@@ -35,14 +35,13 @@ export const PageWrapper = styled.section`
       transition: 0.2s ease;
       border: 0;
       border-radius: 10px;
-    }
-
-    button:hover {
-      background-color: var(--stby-bg-color);
-    }
-
-    button:active {
-      background-color: var(--dark-bg-color);
+    
+      &:hover{
+        background-color: var(--stby-bg-color);
+      }
+      &:active{
+        background-color: var(--dark-bg-color);
+      }
     }
   }
 `;

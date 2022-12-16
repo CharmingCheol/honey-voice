@@ -6,7 +6,8 @@ const Header = () => {
   return (
     <S.Header>
       <NavLink to="/">
-        <h1>꿀보이스</h1>
+        {/*<h1>꿀보이스</h1>*/}
+          <img src={'images/honeyvoice_Logo_simple.png'} alt={'HoneyVoice Logo'}/>
       </NavLink>
       <NavLink to="/profile">
         <span>Profile</span>

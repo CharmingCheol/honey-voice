@@ -4,7 +4,11 @@ export const TabsWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  --main-bg-color: #f5ac2d;
+  --stby-bg-color: #c79114;
+  --dark-bg-color: #744308;
+  --light-bg-color: #ffecca;
+  
   ul {
     width: 100%;
     margin-top: 8px;
@@ -22,7 +26,7 @@ export const TabsWrapper = styled.div`
 
         &.active {
           font-weight: bold;
-          background: #f9f9f9 !important;
+          background: linear-gradient(to bottom, var(--light-bg-color), white) !important;
         }
       }
     }
