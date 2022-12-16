@@ -8,6 +8,7 @@ export const PageWrapper = styled.section`
   --main-bg-color: #f5ac2d;
   --stby-bg-color: #c79114;
   --dark-bg-color: #744308;
+  --light-bg-color: #ffecca;
 
   div.page-body {
     display: flex;
@@ -16,12 +17,16 @@ export const PageWrapper = styled.section`
     padding-top: 200px;
 
     input {
-      padding: 4px;
       margin-top: 24px;
+      padding: 6px 6px 6px 15px;
+      border: 1px solid rgb(210,210,215);
+      border-radius: 10px;
+      transition: 0.2s;
     }
 
     input:focus {
-      outline: 2px solid var(--main-bg-color);
+      padding: 16px 6px 16px 15px;
+      outline: 4px solid var(--main-bg-color);
     }
 
     button {
@@ -29,15 +34,15 @@ export const PageWrapper = styled.section`
       background-color: var(--main-bg-color);
       transition: 0.2s ease;
       border: 0;
+      border-radius: 10px;
     }
-    
+
     button:hover {
       background-color: var(--stby-bg-color);
     }
-    
+
     button:active {
       background-color: var(--dark-bg-color);
     }
-
   }
 `;
