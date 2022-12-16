@@ -34,6 +34,7 @@ const LogInPage = () => {
   return (
     <S.PageWrapper>
       <div className="page-body">
+        <img src={'images/honeyvoice_Logo_simple.png'} alt={'HoneyVoice Logo'}/>
         <input
           type="text"
           placeholder="아이디"
