@@ -24,6 +24,22 @@ class UserService {
       list: user.list.filter((item) => item.id !== itemId),
     });
   }
+
+  public async addPoint(point: number, id: string) {
+    const user: User = await this.getUser(id);
+    await this.db.putValue("user", {
+      ...user,
+      point: user.point + point,
+    });
+  }
+
+  public async minusPoint(point: number, id: string) {
+    const user: User = await this.getUser(id);
+    await this.db.putValue("user", {
+      ...user,
+      point: user.point - point,
+    });
+  }
 }
 
 export default UserService;
