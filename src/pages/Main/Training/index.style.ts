@@ -19,6 +19,10 @@ export const PageWrapper = styled.div`
     border: 1px solid rgb(210,210,215);
     color:#434334;
     border-radius: 24px;
+    
+    &:active{
+      outline:2px solid var(--main-bg-color)
+    }
   }
 
   audio {
@@ -28,7 +32,6 @@ export const PageWrapper = styled.div`
   .button-wrapper {
     display: flex;
     flex-direction: column;
-    margin-top: 32px;
     
     button {
       margin-top: 16px;
@@ -43,10 +46,6 @@ export const PageWrapper = styled.div`
       &:active{
         background-color: var(--dark-bg-color);
       }
-      
-    }
-    
-    &:first-child{
       
     }
     
