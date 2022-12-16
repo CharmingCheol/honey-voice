@@ -8,28 +8,30 @@ export const TabsWrapper = styled.div`
   --stby-bg-color: #c79114;
   --dark-bg-color: #744308;
   --light-bg-color: #ffecca;
-  
+
   ul {
     width: 100%;
     margin-top: 8px;
     margin-bottom: 0 !important;
 
-    li {
-      background-color: white;
+    & > li:first-child > button.active {
+      background: linear-gradient(to bottom, var(--main-bg-color), white) !important;
+    }
 
+    & > li:last-child > button.active {
+      background: linear-gradient(to bottom, #74430899, white) !important;
+    }
+
+    li {
       button {
         color: black;
 
         &:hover {
           color: black;
         }
-
-        &.active {
-          font-weight: bold;
-          background: linear-gradient(to bottom, var(--light-bg-color), white) !important;
-        }
       }
     }
+    
   }
 
   .tab-content {

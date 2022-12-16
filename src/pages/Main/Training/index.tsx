@@ -9,8 +9,8 @@ const TrainingComponent = () => {
       <p>sdfhjlksdflksdjflksdjflsdflk</p>
       <audio controls></audio>
       <div className="button-wrapper">
-        <Button variant="success">학습 시작</Button>
-        <Button variant="success">들어보기</Button>
+        <Button>학습 시작</Button>
+        <Button>들어보기</Button>
       </div>
     </S.PageWrapper>
   );
