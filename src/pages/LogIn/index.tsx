@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-import { Auth } from "../../services";
+import { AuthService } from "../../services";
 
 import * as S from "./index.style";
 
@@ -25,7 +25,7 @@ const LogInPage = () => {
     if (!id || !password) {
       return;
     }
-    const result = await Auth.logIn(id, password);
+    const result = await AuthService.logIn(id, password);
     if (result) {
       navigate("/");
     }

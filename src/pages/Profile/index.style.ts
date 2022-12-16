@@ -39,27 +39,6 @@ export const PageWrapper = styled.section`
       .list-group {
         overflow-y: scroll;
         height: 450px;
-
-        .list-group-item {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-
-          p {
-            overflow: hidden;
-            text-overflow: ellipsis;
-          }
-
-          .button-wrapper {
-            display: flex;
-            min-width: 200px;
-            justify-content: flex-end;
-
-            button {
-              margin-left: 8px;
-            }
-          }
-        }
       }
     }
   }

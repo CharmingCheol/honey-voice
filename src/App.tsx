@@ -118,7 +118,7 @@ const App = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (!window.sessionStorage.getItem("auth")) {
+    if (!window.sessionStorage.getItem("id")) {
       navigate("/login", { replace: true });
     }
   }, [navigate]);

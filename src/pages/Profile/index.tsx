@@ -1,32 +1,45 @@
+import { useLayoutEffect, useState } from "react";
 import { Button, ListGroup } from "react-bootstrap";
 
+import { UserService } from "../../services";
+import { User } from "../../types";
+
 import * as S from "./index.style";
+import PlayListItem from "./ListItem";
 
 const ProfilePage = () => {
+  const [user, setUser] = useState<User>();
+
+  const getUser = async () => {
+    const id = window.sessionStorage.getItem("id");
+    if (!id) {
+      return;
+    }
+    const profile = await UserService.getUser(id);
+    if (!profile) {
+      return;
+    }
+    setUser(profile);
+  };
+
+  useLayoutEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <S.PageWrapper>
       <div className="page-body">
         <article className="my-info">
-          <h2>toby0806</h2>
-          <span>내 포인트: 450</span>
+          <h2>{user?.id}</h2>
+          <span>내 포인트: {user?.point}</span>
           <Button variant="success">포인트 충전하기</Button>
         </article>
         <article className="list">
           <h2>내 음성 기록</h2>
           <ListGroup>
-            {Array(20)
-              .fill(0)
-              .map(() => (
-                <ListGroup.Item>
-                  <p>
-                    sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdf
-                  </p>
-                  <div className="button-wrapper">
-                    <Button variant="success">재생</Button>
-                    <Button variant="danger">삭제</Button>
-                  </div>
-                </ListGroup.Item>
-              ))}
+            {user?.list.map((listItem) => (
+              <PlayListItem key={listItem.text} listItem={listItem} />
+            ))}
           </ListGroup>
         </article>
       </div>
