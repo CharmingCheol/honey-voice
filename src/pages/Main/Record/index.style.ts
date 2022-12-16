@@ -31,5 +31,17 @@ export const PageWrapper = styled.div`
 
   button.submit-btn {
     margin-top: 32px;
+    margin-bottom: 16px;
   }
+`;
+
+export const SpinnerWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
 `;

@@ -11,7 +11,14 @@ class UserService {
 
   changePoint(point: number) {}
 
-  addRecord(item: ListItem) {}
+  public async addRecord(item: ListItem, id: string) {
+    const user: User = await this.getUser(id);
+    const result = await this.db.putValue("user", {
+      ...user,
+      list: [item, ...user.list],
+    });
+    console.log(result);
+  }
 
   deleteRecord(itemId: string) {}
 }
