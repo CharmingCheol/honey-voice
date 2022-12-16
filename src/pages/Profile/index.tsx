@@ -1,14 +1,21 @@
 import { useLayoutEffect, useState } from "react";
 import { Button, ListGroup } from "react-bootstrap";
 
-import { UserService } from "../../services";
-import { User } from "../../types";
+import { UserService } from "services";
+import { ListItem, User } from "types";
 
-import * as S from "./index.style";
 import PlayListItem from "./ListItem";
+import * as S from "./index.style";
 
 const ProfilePage = () => {
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<User>({ id: "", point: 0, list: [] });
+
+  const deleteRecord = (deletedItem: ListItem) => {
+    setUser((state) => ({
+      ...state,
+      list: state?.list.filter((item) => item.id !== deletedItem.id),
+    }));
+  };
 
   const getUser = async () => {
     const id = window.sessionStorage.getItem("id");
@@ -38,7 +45,11 @@ const ProfilePage = () => {
           <h2>내 음성 기록</h2>
           <ListGroup>
             {user?.list.map((listItem) => (
-              <PlayListItem key={listItem.text} listItem={listItem} />
+              <PlayListItem
+                key={listItem.text}
+                listItem={listItem}
+                onDeleteRecord={deleteRecord}
+              />
             ))}
           </ListGroup>
         </article>

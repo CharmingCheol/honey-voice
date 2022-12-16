@@ -9,18 +9,21 @@ class UserService {
     return result;
   }
 
-  changePoint(point: number) {}
-
   public async addRecord(item: ListItem, id: string) {
     const user: User = await this.getUser(id);
-    const result = await this.db.putValue("user", {
+    await this.db.putValue("user", {
       ...user,
       list: [item, ...user.list],
     });
-    console.log(result);
   }
 
-  deleteRecord(itemId: string) {}
+  public async deleteRecord(itemId: string, userId: string) {
+    const user: User = await this.getUser(userId);
+    await this.db.putValue("user", {
+      ...user,
+      list: user.list.filter((item) => item.id !== itemId),
+    });
+  }
 }
 
 export default UserService;
